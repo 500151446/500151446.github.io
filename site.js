@@ -16,3 +16,5 @@ else if (isEvening) {
 }
 
 welcomeMessageHeader.textContent = welcomeMessage
+
+localStorage.setItem("It's a secret to everybody.", 'I had to look it up. I was a wee lad when I played the first zelda game on my gameboy')
