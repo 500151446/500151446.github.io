@@ -35,6 +35,7 @@ const showImages = () => {
     images.forEach((image, index) => {
         const imageIndex = (index + offset + urls.length) % urls.length
         image.src = urls[imageIndex]
+        console.log(urls[imageIndex])
     })
 }
 
@@ -44,22 +45,17 @@ const prevButton = document.querySelector('#prev')
 const nextButton = document.querySelector('#next')
 
 prevButton.addEventListener('click', () => {
-    console.log('prev button clicked')
     currentImage--
-    console.log(currentImage)
     showImages()
 })
 
 nextButton.addEventListener('click', () => {
-    console.log('next button clicked')
     currentImage++
-    console.log(currentImage)
     showImages()
 })
 
 setInterval(() => {
     currentImage++
-    console.log('next image')
     showImages()
 }, 5000)
 
