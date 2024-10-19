@@ -37,13 +37,19 @@ main p{
     text-indent: 25px;
 }
 
+#todolist
+{
+    width: 300px;
+    display: block;
+    margin: auto;
+}
+
 footer{
     width: 100%;
     float: left;
     font-size: small;
     font-weight: bold;
     text-align: center;
-
 }
 
 /* Website Navigation Style */
