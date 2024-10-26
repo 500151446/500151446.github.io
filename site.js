@@ -30,6 +30,7 @@ const urls = [
 const images = document.querySelectorAll('#carousel img')
 
 let currentImage = 0
+
 const showImages = () => {
     const offset = currentImage % urls.length
     images.forEach((image, index) => {
@@ -59,3 +60,33 @@ setInterval(() => {
     showImages()
 }, 5000)
 
+
+
+const displayRandomPokemon = (async () => {
+
+const getRandomPokemon = () => {
+    const url = 'https://pokeapi.co/api/v2/pokemon/' + Math.floor(Math.random() * 150)
+    return getJsonFrom(url);
+}
+
+const renderPokemon = pokemon => {
+    const spriteUrl = pokemon.sprites['front_default']
+    const img = document.createElement('img')
+    img.src = spriteUrl
+    img.alt = pokemon.name
+    const imgDiv = document.querySelector('#pokemonImage')
+    imgDiv.append(img)
+}
+
+const getJsonFrom = async url => {
+    const response = await fetch(url)
+    const json = await response.json()
+    //i think this didn't work because of the weird prototype object at the end and getting everything but that seemed like way too much of a hassle 
+    //so I just left it as json
+    //return JSON.parse(json)
+    return json
+}
+
+var pokemon = await getRandomPokemon()
+renderPokemon(pokemon)
+})()
